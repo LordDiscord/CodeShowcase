@@ -97,7 +97,7 @@ public class SongManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogWarning($"[SongManager] Columna inv·lida: {bd.column}");
+                        Debug.LogWarning($"[SongManager] Columna inv√°lida: {bd.column}");
                     }
                 }
             }
