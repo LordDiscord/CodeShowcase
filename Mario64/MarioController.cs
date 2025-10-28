@@ -84,7 +84,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement, IPlayerManage
         m_HUD = FindObjectOfType<HUD>();
         if (m_HUD == null)
         {
-            Debug.LogError("No se encontró ningún HUD en la escena.");
+            Debug.LogError("No se encontrÃ³ ningÃºn HUD en la escena.");
         }
         m_CurrentTries = m_MaxTries;
         m_CurrentLives = m_MaxLives;
@@ -454,6 +454,6 @@ public class MarioController : MonoBehaviour, IRestartGameElement, IPlayerManage
     public void LoseTry()
     {
         m_CurrentTries = Mathf.Max(0, m_CurrentTries - 1);
-        Debug.Log($"Mario perdió un intento. Intentos restantes: {m_CurrentTries}");
+        Debug.Log($"Mario perdiÃ³ un intento. Intentos restantes: {m_CurrentTries}");
     }
 }
