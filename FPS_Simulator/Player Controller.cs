@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     Quaternion m_StartRotation;
 
     [Header("Bullets")]
-    public int maxAmmoInMag = 25;  // Balas máximas por cargador
-    public int maxTotalAmmo = 100; // Balas totales máximas
-    public TMP_Text ammoInMagText;      // Para mostrar el número de balas en el cargador
+    public int maxAmmoInMag = 25;  // Balas mÃ¡ximas por cargador
+    public int maxTotalAmmo = 100; // Balas totales mÃ¡ximas
+    public TMP_Text ammoInMagText;      // Para mostrar el nÃºmero de balas en el cargador
     public TMP_Text totalAmmoText;
-    public TMP_Text lifeText;// Para mostrar el número total de balas
+    public TMP_Text lifeText;// Para mostrar el nÃºmero total de balas
     private int currentAmmoInMag;
     public int currentTotalAmmo;
     private float reloadAnimationTime;
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     private IEnumerator ReloadCoroutine()
     {
         isReloading = true;
-        yield return new WaitForSeconds(reloadAnimationTime); // Esperar a que termine la animación de recarga
+        yield return new WaitForSeconds(reloadAnimationTime); // Esperar a que termine la animaciÃ³n de recarga
 
         int ammoNeeded = maxAmmoInMag - currentAmmoInMag;
         int ammoToReload = Mathf.Min(ammoNeeded, currentTotalAmmo);
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
         currentAmmoInMag += ammoToReload;
         currentTotalAmmo -= ammoToReload;
 
-        // Actualizar UI después de recargar
+        // Actualizar UI despuÃ©s de recargar
         UpdateAmmoUI();
         isReloading = false;
     }
