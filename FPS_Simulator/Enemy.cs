@@ -29,9 +29,9 @@ public class Enemy : MonoBehaviour, IRestartGameElement
     public float m_MaxDistanceToAttack = 15.0f;
     public float m_ConAngle = 60.0f;
     public LayerMask m_SightLayerMask;
-    public float attackDamage = 10.0f;  // Daño que el enemigo hace al jugador
+    public float attackDamage = 10.0f;  // DaÃ±o que el enemigo hace al jugador
     public float attackCooldown = 2.0f; // Tiempo de espera entre ataques
-    private float lastAttackTime; // Último momento de ataque
+    private float lastAttackTime; // Ãšltimo momento de ataque
 
     int m_CurrentPatrolPositionId = 0;
 
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour, IRestartGameElement
     {
         m_Life = m_MaxLife;
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
-        lastAttackTime = 0f; // Inicializar el tiempo del último ataque
+        lastAttackTime = 0f; // Inicializar el tiempo del Ãºltimo ataque
     }
 
     private void Start()
@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour, IRestartGameElement
         // Perseguir al jugador
         SetNextChasePosition();
 
-        // Si no ve al jugador y no está en rango, volver a patrullar
+        // Si no ve al jugador y no estÃ¡ en rango, volver a patrullar
         if (!HearsPlayer())
         {
             SetPatrolState();
@@ -182,18 +182,18 @@ public class Enemy : MonoBehaviour, IRestartGameElement
             {
                 shootAudio.PlayOneShot(shootSound);
                 AttackPlayer(); // Atacar al jugador
-                lastAttackTime = Time.time; // Actualizar el tiempo del último ataque
+                lastAttackTime = Time.time; // Actualizar el tiempo del Ãºltimo ataque
             }
         }
         else
         {
-            SetPatrolState(); // Si no está en rango de ataque, vuelve a patrullar
+            SetPatrolState(); // Si no estÃ¡ en rango de ataque, vuelve a patrullar
         }
     }
 
-    void UpdateHitState() { /* Implementar lógica de golpe */ }
+    void UpdateHitState() { /* Implementar lÃ³gica de golpe */ }
 
-    void UpdateDieState() { /* Implementar lógica de muerte */ }
+    void UpdateDieState() { /* Implementar lÃ³gica de muerte */ }
 
     void MoveToNextPatrolPosition()
     {
@@ -213,7 +213,7 @@ public class Enemy : MonoBehaviour, IRestartGameElement
         Vector3 playerPosition = GetPlayerPosition();
         Vector3 direction = (playerPosition - transform.position).normalized;
 
-        // Rotar más rápido hacia el jugador
+        // Rotar mÃ¡s rÃ¡pido hacia el jugador
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5 * Time.deltaTime);
     }
@@ -226,12 +226,12 @@ public class Enemy : MonoBehaviour, IRestartGameElement
         m_NavMeshAgent.destination = l_DesiredPosition;
     }
 
-    // Método para atacar al jugador
+    // MÃ©todo para atacar al jugador
     void AttackPlayer()
     {
-        // Aquí puedes implementar la lógica para reducir la vida del jugador
+        // AquÃ­ puedes implementar la lÃ³gica para reducir la vida del jugador
         PlayerController player = GameManager.GetGameManager().GetPlayer();
-        player.TakeDamage(attackDamage); // Método que asume que el jugador tiene "TakeDamage"
+        player.TakeDamage(attackDamage); // MÃ©todo que asume que el jugador tiene "TakeDamage"
         Debug.Log("Atacando al jugador y quitando vida");
     }
 
@@ -297,4 +297,5 @@ public class Enemy : MonoBehaviour, IRestartGameElement
             SetPatrolState(); // Vuelve al estado de patrullaje
         }
     }
+
 }
