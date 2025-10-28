@@ -10,13 +10,13 @@ public class MainCharacter : Character
     public static MainCharacter instance; // Singleton instance
 
     private int count = 0;
-    private bool fighter = true; // Esto es la clase default para esta prueba, luego se podr·n escoger
+    private bool fighter = true; // Esto es la clase default para esta prueba, luego se podr√°n escoger
 
     public Dictionary<string, List<Item>> inventory = new Dictionary<string, List<Item>>();
 
     protected virtual void Awake()
     {
-        // ImplementaciÛn del Singleton
+        // Implementaci√≥n del Singleton
         if (instance == null)
         {
             instance = this;
@@ -72,7 +72,7 @@ public class MainCharacter : Character
     }
     public void GenerateNewStats()
     {
-        // Inicializa las estadÌsticas b·sicas
+        // Inicializa las estad√≠sticas b√°sicas
         attacks = 0;
         health = Random.Range(15, 21);
         armor = 10;
@@ -104,13 +104,13 @@ public class MainCharacter : Character
     }
 
 
-    // MÈtodo para usar un Ìtem del inventario
+    // M√©todo para usar un √≠tem del inventario
     public void UseItem(string itemType)
     {
         if (inventory.ContainsKey(itemType) && inventory[itemType].Count > 0)
         {
-            // AquÌ puedes implementar la lÛgica para usar el Ìtem del tipo especificado
-            Item item = inventory[itemType][0]; // Tomamos el primer Ìtem del tipo especificado
+            // Aqu√≠ puedes implementar la l√≥gica para usar el √≠tem del tipo especificado
+            Item item = inventory[itemType][0]; // Tomamos el primer √≠tem del tipo especificado
             if (itemType == "HealthPotion")
             {
                 health += ((HealthPotion)item).HealAmount;
@@ -127,12 +127,12 @@ public class MainCharacter : Character
             {
                 attacks += ((AttackPotion)item).AttackAmount;
             }
-            inventory[itemType].RemoveAt(0); // Eliminamos el Ìtem del inventario
+            inventory[itemType].RemoveAt(0); // Eliminamos el √≠tem del inventario
             Debug.Log(item.Name + " usado.");
         }
         else
         {
-            Debug.Log("No hay Ìtems del tipo " + itemType + " en el inventario.");
+            Debug.Log("No hay √≠tems del tipo " + itemType + " en el inventario.");
         }
     }
 
@@ -179,4 +179,5 @@ public class MainCharacter : Character
     {
         anim.SetBool("AttackRight", false);
     }
+
 }
